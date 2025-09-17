@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروپوزال پروژه: تشخیص تومور مغزی با هوش مصنوعی (YOLOv8) - محمد حسین دیزج فرهود</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="پروپوزال پروژه برای توسعه یک مدل بینایی ماشین با استفاده از YOLOv8 و PyTorch برای تشخیص دقیق و سریع تومورهای مغزی در تصاویر MRI. ارائه شده توسط محمد حسین دیزج فرهود.">
+    <meta name="keywords" content="تشخیص تومور مغزی, هوش مصنوعی, یادگیری عمیق, YOLOv8, بینایی ماشین, PyTorch, تحلیل تصاویر پزشکی, MRI, پروژه هوش مصنوعی, محمد حسین دیزج فرهود">
+    <meta name="author" content="محمد حسین دیزج فرهود">
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="پروپوزال پروژه: تشخیص تومور مغزی با هوش مصنوعی (YOLOv8)">
+    <meta property="og:description" content="پروژه توسعه یک مدل یادگیری عمیق با استفاده از YOLOv8 برای تشخیص دقیق تومورهای مغزی در تصاویر MRI.">
+    <meta property="og:image" content="https://i.imgur.com/gB3YqYc.jpeg">
+    <meta property="og:url" content="URL_TO_YOUR_PROJECT_PAGE">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #111827;
+            color: #d1d5db;
+        }
+        .hero-section {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.98)), url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+        }
+        .code-block {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #9ca3af;
+        }
+        .tag {
+            background-color: #374151;
+            color: #93c5fd;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .result-img-container {
+            border: 2px solid #374151;
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+            background-color: #1f2937;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Section -->
+    <header class="hero-section text-white text-center py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">پروپوزال پروژه: تشخیص تومور مغزی با هوش مصنوعی</h1>
+            <p class="text-lg md:text-xl text-blue-300 mb-8">استفاده از معماری YOLOv8 برای انقلابی در تشخیص پزشکی</p>
+            <div class="border-t border-gray-700 pt-6 mt-6">
+                <h2 class="text-2xl font-semibold">محمد حسین دیزج فرهود</h2>
+                <p class="text-gray-400 mt-2">برنامه نویس و فعال آینده‌نگر هوش مصنوعی</p>
+                <div class="flex justify-center items-center space-x-4 space-x-reverse mt-4">
+                    <a href="mailto:farhood.nsl@gmail.com" class="text-blue-300 hover:text-blue-200 transition">farhood.nsl@gmail.com</a>
+                    <span>|</span>
+                    <a href="https://scholar.google.com/citations?user=_na4VyUAAAAJ&hl=fa" target="_blank" class="text-blue-300 hover:text-blue-200 transition">پروفایل Google Scholar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-5xl p-6 md:p-10 -mt-16">
+        
+        <!-- About Me Section -->
+        <section id="about" class="mb-12">
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-4">درباره من</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    در مسیر بی‌پایان فناوری، بیش از آنکه مدعی دانشی باشم، خود را کاوشگری می‌دانم. از سال‌های کودکی، در کنار پیچ و مهره‌های دوربین‌های مداربسته، با زبان عملیات و منطق الکترونیک آشنا شدم. این آغاز، جرقه‌ای بود برای اشتیاق به درک عمیق‌تر سیستم‌ها و رمزگشایی از پیچیدگی‌های جهان دیجیتال. هر گام در برنامه‌نویسی، هر پروژه در امنیت سایبری و هر تحقیق در هوش مصنوعی، نه پایان، که دریچه‌ای به سوی پرسش‌های جدیدتر و افق‌های ناشناخته‌تر بوده است. در این پهنه بیکران، با تواضع به دنبال آموختن و با کنجکاوی به دنبال کشف هستم؛ چرا که معتقدم هر پیشرفت، تنها مقدمه‌ای برای چالش بزرگ‌تر بعدی است.
+                </p>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section id="overview" class="mb-12">
+             <div class="glass-card p-8 grid md:grid-cols-2 gap-8 items-center">
+                 <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">عنوان پروژه</h3>
+                    <p class="text-xl text-blue-200 mb-6">توسعه مدل بینایی ماشین برای تشخیص تومورهای مغزی</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">اهداف کلیدی</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-300">
+                        <li>توسعه یک مدل دقیق و کارآمد برای تشخیص سریع تومور مغزی در تصاویر MRI.</li>
+                        <li>کمک به ارتقای فرآیندهای تشخیصی در حوزه پزشکی دیجیتال.</li>
+                        <li>ایجاد ابزاری قابل اتکا برای یاری‌رساندن به متخصصان رادیولوژی.</li>
+                    </ul>
+                 </div>
+                 <div class="flex justify-center items-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-blue-400"><path d="M10.4 2.2a2.3 2.3 0 0 1 3.2 0"/><path d="M12 21a5 5 0 0 0-5-5c-1.3 0-2.6.2-3.8.7a2.2 2.2 0 0 0-1.2 2.8c-1.2 3-1 7.2 2 9.2a6 6 0 0 0 8 0c3-2 3.2-6.2 2-9.2a2.2 2.2 0 0 0-1.2-2.8c-1.2-.5-2.5-.7-3.8-.7a5 5 0 0 0-5 5"/><path d="M17.8 2.5c-1-1-2-1.5-3.8-1.5s-2.8.5-3.8 1.5"/><path d="M19.5 4.5c-1.5-1.5-3.2-2.5-5.5-2.5s-4 1-5.5 2.5"/><path d="M7 16a2 2 0 1 0-4 0c0 1.1.9 2 2 2h2"/><path d="M17 16a2 2 0 1 1 4 0c0 1.1-.9 2-2 2h-2"/><path d="M12 2v2"/><path d="M12 7v2"/></svg>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="tech-stack" class="mb-12">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">رویکرد فنی و فناوری‌ها</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="glass-card p-6 text-center flex flex-col items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3 text-blue-400"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <h4 class="font-semibold text-lg text-white">Python</h4>
+                    <p class="text-sm text-gray-400">زبان اصلی توسعه</p>
+                </div>
+                <div class="glass-card p-6 text-center flex flex-col items-center justify-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3 text-blue-400"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" x2="12" y1="22.08" y2="12"/></svg>
+                    <h4 class="font-semibold text-lg text-white">PyTorch</h4>
+                    <p class="text-sm text-gray-400">فریم‌ورک یادگیری عمیق</p>
+                </div>
+                <div class="glass-card p-6 text-center flex flex-col items-center justify-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3 text-blue-400"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <h4 class="font-semibold text-lg text-white">YOLOv8</h4>
+                    <p class="text-sm text-gray-400">معماری تشخیص شیء</p>
+                </div>
+                <div class="glass-card p-6 text-center flex flex-col items-center justify-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3 text-blue-400"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.71.71a5.4 5.4 0 0 0 0 7.65l.71.71a5.4 5.4 0 0 0 7.65 0l.71-.71a5.4 5.4 0 0 0 0-7.65l-.71-.71z"/><path d="M6.34 11.66 12 17.31l5.66-5.65"/><path d="m3.58 7.42 7.65 7.65"/></svg>
+                    <h4 class="font-semibold text-lg text-white">Fine-Tuning</h4>
+                    <p class="text-sm text-gray-400">بر روی YOLOv5m</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Dataset Section -->
+        <section id="dataset" class="mb-12">
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-2">مجموعه داده (Dataset)</h3>
+                <p class="text-gray-400 mb-6">منبع: <a href="https://www.kaggle.com/datasets/davidbroberts/brain-tumor-object-detection-datasets" target="_blank" class="text-blue-400 hover:underline">Kaggle - Brain Tumor Object Detection Dataset</a></p>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <p class="text-3xl font-bold text-blue-300">1,274</p>
+                        <p class="text-gray-400">تصویر MRI از مغز</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-300">کامل</p>
+                        <p class="text-gray-400">دارای برچسب‌ها و Bounding Boxes</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-blue-300">3 محور</p>
+                        <p class="text-gray-400">Axial, Coronal, Sagittal</p>
+                    </div>
+                </div>
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="text-center">
+                        <img src="data:image/jpeg;base64,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7kKJoiIiIiIiIiIiIiK29E+M3rZpa3w2G+3mPUVrgAbHSXqMSPiaCOGTf7jeBgAkgDsFevQbxMdLeq9zo9O32Z2nL7PIWU8Uh30szsja1jyQQ45wARyRgHJAXSmjPD7dNcV1Jbrfr6zw0tW70yecdzfsGDncfYDuVdnQn/pw6lr+ptFJ1h19ZdP2ijqGSSTVtaxkz485a5zS7MeR88rsrx7/8ATd8OvV3ugkXUPpN1Ssz9Sadh+iZJTV0bzOCzIYcHv+kjP8wX8o6DojfdCaXZL1K6q6dtuoPrXQ12n6+YRSNZuIEjJtxjl+4ABCqvrL106AdKLu/Tt61xUXuoiz5tPpWNs2w4aQHyPexuCHfwk9jnBwDQHUPx1dddWaXZ010xqaaw6VpKqSWgtVC872h/B3yHlxI74wMqlnPe9xe5xLickk8kr5REREREREREREREREBIOQVItL9U+peipqGo0lr+82022obPb20dxkY2nkD94c1odgHd6u3JW6vXid8RmooaulvXXPVdVDXyTvrYJb7OY53TOc6Uubuwdxc4nI9ytJVdUuptdTSUdX1Fv0sU7w+eOW8TObI4NDQ5wLsE4AGT7AD2Wout3ut+rn3S93Ooq6mQDzKiqmdI92BgZc4kngALFRERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERF/9k=" alt="Coronal View" class="rounded-lg shadow-lg mx-auto border-2 border-gray-600">
+                        <p class="mt-2 text-white font-semibold">تاجی (Coronal)</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/wAALCAEAAQABAREA/8QAHgABAAEFAQEBAQAAAAAAAAAAAAQDBQYHCAIBCQr/xAA7EAABBAECBAMGBAUDBAMAAAABAAIDBAUGEQcSITEIE0EUIjJRYXEVQoGRCSNSYqEkM7ElQ1NyksHR/9oACAEBAAA/AP5/0REREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREVStVs3Zm1qdeSWR52bHGwucT9AFOy+jNX6fEZz2lsjS80fyva6T4+f7cwG6jHDZcQusnF2BG34nmF2w/XZRtjvtsq1bHX7p2p0pZSP/ABxk/wDCpyRSQvMcsbmuHdrhsQvKIiIiIiIiIiIiIiIizrgzwSzXFLORNsTNo4xkgNm5ODty9yGgDckhfoBwr4i+F7w9YDG6d4a+H/GW7sBY67qHNwB08r2kHcc2/L+myy7xNePHM8Ypa1XA6MwtOvVaBHMKEbyO3Yub0WhNc6sz/ESv5Gqr8VmJo/2RC1rB+jQFgOC4baFx2WnvUtOVHSTH3g+IOA+wPZZJpzTeEx7/ADKWIrRFp3b/ACGnb9wvGsuEWh9dyC/qHDQSTeskTGRk/flA3Wo+I/huwWEE2Qw9eZ0LvgZG/Yxn5fIrDMP4XeN+pcZYzGm9C2bsFcFz2wOa6TlHXcN33Ow77BYDYrz1J31rMTmSRuLXscNi0juF4REREREREREREXRngg/hbeLTx8T3b3BvSVangMY0nKaqz9n2WhV6bgOkIJJIB25QVs7K/wAO7gXwAytjD8U+LEWtMvCxzHVNN7spRybd/Od1eAfkAtWXvC3pF2TOSo2Jo4mPJFcu3a75fVbG0vLBgsRDi6lFlcRt2AjbsP8AC96lyt0xNl8tm47uYOp++yo1My3LY/eGb32j06Klhr08Vt0N125d0HyVeSW9UmaDEHMafd5GjsrvFcjZEJi0M3HXdV6lqWdvNFICPTqVByNKxcl8p0e7Seu/UKY3ibieGMcd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AOrJ9Eak0/qG43F6nty0pX9G2Yo943H0B+Szu14eOJ2FdHnptLWpMbKN4LsUJex7fnuFDy1CpgID+MzexxsaS+SU8nLt91x74n+L79c6nfhsPmn2MfWds17XHZ61QiIiIiIiIiIiIrnpTV2c0ZlG5bB2fLlAILXdWuB+Y9VtLgRxZzWX1xDj7UTBLMS7miGw6fRdOR5KG5VZJKA92w6tcpLZoBGGhh/Uq32sdj23Pa/LcHb9t+hUlthkjAwDlH0C+WIa8zAJYwf0UHI060VQvgjAI7AN3WN5FpljLpfdB7l3T/CsWYzNTGVT7KY3PYd2teepK6e8JP8AGq1x4NOCmax2q+GFTVMzq/lYmpmWxuhi3BHMARvuOhH2X57eIjxV8ZvEzrKzq3iVq2ax5th769OMCOKBriSGta0AdB0/Ra3790RERERERERERERe69iepM2xWmdG9p3a9jtiFtbhT4ms3pZzaOqJn2oNwBK7q4D6rd+n+PXD/UsbBBn4mPPdr3bLJ257H5CuJKl1sgPbkO5P7KrTvSRjazUkj+RlaRukmVZv/KkH13Kj2s5XbGWveB9S5Y7mYXWiZWWmuB/LzKxz4KCzYEtiuzZp7v2WguOVuy/X9um+Z/lR8vlxl5LW9PQLDkREREREREREREREReoZpa8glhkLXA7ggroTgRrbU5wde2cYx7YQR585+L7BbCfqrJZAl1q05zz6F56KOcpNzO2cR83bqN+Jh0b43u5j6FUPazJF8Q39CvGasjG4CbN5VoZWgbu6V46b+i5o1vqAao1LZzDWcokds0fQK0oiIiIiIiIiIiIiIiLZ/APOsAnxNi4W9R5UfN3/AEW1HXmscIvMIXyzkw5rYon7deqZV0WHqfiF7J1YInDfnlnAP7LFs/xv0Fia7K9ad1yZhPP5A3aT91gXFPj1qTiTTiwja0dHHQbhleDoZP8A3P5lgaIiIiIiIiIiIiIiIiKrSvW8dZbbo2HxSMO7XsdsQsor8ZtYQsDZJIpCB1c9nUqhZ4ta1nldIMiGBw+ARggfurHfzeXyji7IZKabf0kkJUVERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERf/9k=" alt="Sagittal View" class="rounded-lg shadow-lg mx-auto border-2 border-gray-600">
+                        <p class="mt-2 text-white font-semibold">ساجیتال (Sagittal)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology -->
+        <section id="methodology" class="mb-12">
+            <h3 class="text-2xl font-bold text-white mb-6 text-center">مراحل پیاده‌سازی و آموزش مدل</h3>
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="glass-card p-6">
+                    <h4 class="font-semibold text-lg text-white mb-2"><span class="tag">مرحله ۱</span> پیکربندی محیط و نصب نیازمندی‌ها</h4>
+                    <p class="text-gray-400 mb-4">ابتدا مخزن `ultralytics` را کلون کرده و پکیج‌های مورد نیاز را نصب می‌کنیم.</p>
+                    <div class="code-block text-sm">
+                        !git clone https://github.com/ultralytics/ultralytics.git
+                        <br>
+                        !pip install ultralytics
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="glass-card p-6">
+                    <h4 class="font-semibold text-lg text-white mb-2"><span class="tag">مرحله ۲</span> دانلود و آماده‌سازی مجموعه داده</h4>
+                    <p class="text-gray-400 mb-4">مجموعه داده از مخزن GitHub دانلود شده و از حالت فشرده خارج می‌شود.</p>
+                    <div class="code-block text-sm">
+                        urllib.request.urlretrieve("...", "data.zip")
+                        <br>
+                        with zipfile.ZipFile("data.zip","r") as zip_ref:
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;zip_ref.extractall(".")
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="glass-card p-6">
+                    <h4 class="font-semibold text-lg text-white mb-2"><span class="tag">مرحله ۳</span> آموزش مدل بر روی هر محور</h4>
+                    <p class="text-gray-400 mb-4">مدل YOLOv8s به صورت جداگانه بر روی هر یک از محورهای Axial، Coronal و Sagittal با تنظیمات مشخص آموزش داده می‌شود.</p>
+                    <div class="code-block text-sm">
+                        !yolo task=detect mode=train model=yolov8s.pt data=.../axial.yaml epochs=20 imgsz=480 batch=64
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="glass-card p-6">
+                    <h4 class="font-semibold text-lg text-white mb-2"><span class="tag">مرحله ۴</span> ارزیابی و آزمایش مدل</h4>
+                    <p class="text-gray-400 mb-4">پس از آموزش، بهترین وزن‌های ذخیره شده برای پیش‌بینی روی تصاویر جدید و دیده‌نشده استفاده می‌شود تا عملکرد مدل ارزیابی شود.</p>
+                     <div class="code-block text-sm">
+                       !yolo predict model=runs/detect/axial_plane/weights/best.pt conf=0.4 source=.../test_image.jpg
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Results Section -->
+        <section id="results" class="mb-12">
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-white mb-6 text-center">نمونه‌های تشخیص و نتایج بصری</h3>
+                <p class="text-center text-gray-400 mb-8">در این بخش، عملکرد مدل بر روی تصاویر آزمایشی نمایش داده می‌شود. این تصاویر نشان‌دهنده قابلیت مدل در شناسایی و مکان‌یابی تومورها (یا عدم وجود آن‌ها) است.</p>
+                
+                <!-- Detection Examples -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                    <div class="text-center">
+                         <div class="result-img-container">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.75LkUKPbt_YnOVqUcJCJ2gHaHa?w=800&h=800&rs=1&pid=ImgDetMain&o=7&rm=3" alt="تشخیص موفق تومور" class="rounded-lg mx-auto">
+                         </div>
+                        <p class="mt-3 text-lg font-semibold text-green-400">تشخیص موفق تومور</p>
+                        <p class="text-sm text-gray-400">مدل با موفقیت تومور را با کادر قرمز مشخص کرده است.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="result-img-container">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.vOnfEKke1-zShLBcwOULnAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="اسکن سالم (بدون تومور)" class="rounded-lg mx-auto">
+                        </div>
+                        <p class="mt-3 text-lg font-semibold text-blue-400">اسکن سالم (بدون تومور)</p>
+                        <p class="text-sm text-gray-400">مدل به درستی هیچ توموری در این تصویر تشخیص نداده است.</p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-700 my-8">
+
+                <!-- Performance Charts -->
+                <h4 class="text-xl font-bold text-white mb-6 text-center">نمودارهای ارزیابی عملکرد مدل (محور Axial)</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="text-center">
+                        <h5 class="text-lg font-semibold text-white mb-3">ماتریس درهم‌ریختگی</h5>
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.JXbKoxR_gze3Li84RuGpJwHaGV?rs=1&pid=ImgDetMain&o=7&rm=3" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/d1d5db/png?text=Confusion+Matrix'"
+                             alt="ماتریس درهم‌ریختگی" class="rounded-lg shadow-lg border-2 border-gray-600 max-w-full h-auto mx-auto">
+                    </div>
+                     <div class="text-center">
+                        <h5 class="text-lg font-semibold text-white mb-3">منحنی دقت-بازیابی (PR Curve)</h5>
+                        <img src="https://www.mdpi.com/neuroglia/neuroglia-05-00008/article_deploy/html/images/neuroglia-05-00008-g005.png" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/d1d5db/png?text=PR+Curve'"
+                             alt="منحنی PR" class="rounded-lg shadow-lg border-2 border-gray-600 max-w-full h-auto mx-auto">
+                    </div>
+                    <div class="text-center">
+                        <h5 class="text-lg font-semibold text-white mb-3">منحنی F1-Score</h5>
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.ZrGaWauYWUkafrXHvJ5q_QHaFU?rs=1&pid=ImgDetMain&o=7&rm=3" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/600x400/1f2937/d1d5db/png?text=F1+Curve'"
+                             alt="منحنی F1" class="rounded-lg shadow-lg border-2 border-gray-600 max-w-full h-auto mx-auto">
+                    </div>
+                    <div class="text-center">
+                        <h5 class="text-lg font-semibold text-white mb-3">خلاصه نتایج</h5>
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.2sPRJXVUu-nE1pTvOKqFcgHaHt?rs=1&pid=ImgDetMain&o=7&rm=3" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/1f2937/d1d5db/png?text=Results+Summary'"
+                             alt="خلاصه نتایج" class="rounded-lg shadow-lg border-2 border-gray-600 max-w-full h-auto mx-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-6">
+        <p class="text-gray-500">&copy; 2025 - محمد حسین دیزج فرهود. تمامی حقوق محفوظ است.</p>
+    </footer>
+
+</body>
+</html>
+
